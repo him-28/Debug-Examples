@@ -1,0 +1,12 @@
+compile program
+$ make
+run with $ ./a.out
+$ ls			# no core file
+$ulimit -a 		# to check the limits
+$ulimit -c unlimited	# set core file size from 0 to unlimited
+run with $ ./a.out
+$ls			# complete core file generated
+
+gdb run with core:
+
+gdbb ./core core.PID

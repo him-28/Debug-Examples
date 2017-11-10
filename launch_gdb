@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+reservation=PATC17_MT
+
+export DSP=${DISPLAY#*:}
+export SPANK_X11="`hostname`/unix:${DSP%%.*}"
+
+/opt/perf/bin/srun -n 1 -t 00:15:00 --mem=2000 --reservation=$reservation --pty gdb --args "$@" 
